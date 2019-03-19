@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<block wx:for="{{list}}">
+    <image src='{{item.cover}}'></image>
+</block>

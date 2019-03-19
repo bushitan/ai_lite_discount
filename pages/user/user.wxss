@@ -1,0 +1,6 @@
+/* pages/user/user.wxss */
+
+.qr{
+    width: 80px;
+    height: 80px;
+}

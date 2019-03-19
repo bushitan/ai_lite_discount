@@ -1,0 +1,44 @@
+{
+    "pages":[
+        "pages/user/user",
+        "pages/seller/seller",
+        "pages/host/host",
+
+        "pages/sport/sport",
+        "pages/painter/painter",
+        "pages/test/test",
+        "pages/my/my"
+
+
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "backgroundColor": "#FAFAFA",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "姿势研究中心",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar":{
+        "position":"bottom",
+        "list": [
+            {
+                "pagePath": "pages/user/user",
+                "text": "用户页面"
+            },
+            {
+                "pagePath": "pages/seller/seller",
+                "text": "销售页面"
+            },
+            {
+                "pagePath": "pages/host/host",
+                "text": "老板页面"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 15000,
+        "downloadFile": 15000
+    },
+    "cloud": true,
+    "debug": true
+}

@@ -1,0 +1,129 @@
+
+
+.xx_btn{
+    position: fixed;
+    bottom: 15px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    /* z-index: 9999; */
+}
+.xx_btn_right {
+    position: fixed;
+    bottom: 15px;
+    right: 0;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.mode{
+    color: #fff;
+    display: flex;
+     justify-content: space-around;
+    align-content: center;
+    text-align: center;
+    border-radius: 50%;
+    margin:0 30px;
+}
+.xx_btn .center_btn{
+    color: #fff;
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    /*align-items: center;*/
+    /*text-align: center;*/
+    border-radius: 15px;
+    /*width: 70px;*/
+    /*height: 70px;*/
+    margin-left: 20px;
+    padding: 5px;
+    background-color: #eeede8;
+    box-shadow:0px 1px 1px #828282 inset;
+}
+.xx_btn .center_content{
+    margin: auto;
+     line-height: 49px;
+    /*font-size: 13pt;*/
+    /*overflow:hidden;*/
+     /*width: 58px;*/
+    /*height: 58px;*/
+    /* color: #ec563e; */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow:0px 1px 1px #828282;
+    font-weight: bold;
+    padding:0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.xx_btn .center_icon{
+    width:36px;
+    height:36px;
+}
+.xx_btn .center_des{
+    color: #888;
+    font-size: 9pt;
+    font-weight: 100;
+}
+
+.mode_bg_center{
+    width: 70px;
+    height: 70px;
+    margin: 0 40px;
+    background-color: #eeede8;
+    box-shadow:0px 1px 1px #828282 inset;
+}
+.mode .node{
+    margin: auto;
+     line-height: 58px;
+    font-size: 17pt;
+     overflow:hidden;
+     width: 58px;
+    height: 58px;
+    /* color: #ec563e; */
+
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow:0px 1px 1px #828282;
+    font-weight: bold;
+}
+.mode .image{
+    width: 100%;
+    height:100%;
+}
+
+.mode_bg_sub{
+    width: 60px;
+    height: 60px;
+    /* margin: 10px 0; */
+    background-color: #eeede8;
+    box-shadow:0px 1px 1px #828282 inset;
+}
+
+.mode_bg_sub .node{
+    margin: auto;
+     line-height: 48px;
+    font-size: 14pt;
+     overflow:hidden;
+     width: 48px;
+    height: 48px;
+    color: #ec563e;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow:0px 1px 1px #828282;
+    font-weight: bold;
+
+    display: flex;
+     justify-content: space-around;
+    align-content: center;
+}
+.mode_bg_sub image{
+    margin: auto;
+    width: 21px;
+    height: 21px;
+}
+
+
+

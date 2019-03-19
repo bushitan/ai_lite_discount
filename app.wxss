@@ -1,0 +1,54 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  box-sizing: border-box;
+  position:relative;
+  font-family: "PingFang-SC-Regular","SimSun","Microsoft Yahei";
+  font-variant-ligatures: none;
+  /* background-color: #FAFAFA; */
+}
+page {
+  /* height: 100%; */
+  width: 100%;
+  /* background-color: #ffffff; */
+  background: #FAFAFA;
+    font-size: 11pt;
+}
+
+input {
+  font-family: "PingFang-SC-Regular","SimSun","Microsoft Yahei";
+}
+.head{
+    text-align: center;
+    font-size: 11pt;
+    margin:5px 0;
+    font-weight: bolder;
+}
+
+
+.ad_fix{
+    position: fixed;
+    width: 750rpx;
+    bottom: 0;
+}
+.ad{
+    /* position: fixed; */
+    width: 750rpx;
+    bottom: 0;
+}
+.ad_fix .ndoe ,.ad .ndoe{
+    width: calc(750rpx - 30px);
+    height: 48px;
+}
+
+.ada{
+    position: fixed;
+    width: 750rpx;
+
+}

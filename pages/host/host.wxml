@@ -1,0 +1,18 @@
+<!--pages/host/host.wxml-->
+<button>扫码增加店员</button>
+
+<view style='height:20px'> </view>
+<view>
+    <block wx:for="{{list}}" wx:index="index">
+        <label>{{item.name}}</label>
+        <label>{{item.type}}</label>
+        <label>{{item.num}}</label>
+        <button size='mini'>取消店员</button>
+        <button size='mini'>重新授权</button>
+        <button size='mini'>销售记录</button>
+    </block>
+</view>
+
+<view style='height:20px'> </view>
+<view>门店销售记录</view>
+<view>销量，扫码率</view>

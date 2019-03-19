@@ -1,0 +1,141 @@
+
+
+
+<!-- <wxs module="color">
+var deleteHex = function(str) {
+    console.log(str,231)
+
+   return str.substring(1, str.length); 
+}
+module.exports.deleteHex = deleteHex;
+</wxs>
+<view class='color'>
+    <view class='node' style="background-color:{{pointColor}}">
+       <label>#</label> <input value="{{color.deleteHex(pointColor)}}" placeholder="点的颜色" bindconfirm="inputPointColor"/>
+    </view>
+    <view class='node' style="background-color:{{lineColor}}">
+       <label>#</label> <input value="{{color.deleteHex(lineColor)}}" placeholder="线的颜色" bindconfirm="inputLineColor" />
+    </view>
+</view> -->
+<view class='head'>检测您的姿势是否标准</view>
+<ai-show
+    bg="{{tempImage}}"
+    bodyRectangle="{{bodyRectangle}}"
+    landmark="{{landmark}}"
+    catch:touchCallback="touchCallback"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+></ai-show>
+<!-- <ai-painter 
+    bodyRectangle="{{bodyRectangle}}"
+    landmark="{{landmark}}"
+    catch:currentKey="currentKey"
+    catch:currentIndex="currentIndex"
+    move="{{move}}"
+    bg="{{bg}}"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+    getImage="{{getImage}}"
+>
+</ai-painter> -->
+
+
+<!-- 位置选择 -->
+<view class="section">
+  <picker 
+    bindchange="bindPickerChange" 
+    range-key="name" 
+    range="{{keyArray}}" 
+    value='keyIndex'
+    bindchange="pickKey"
+  >
+    <view class="picker">
+        <xx-navigte title="选择微调关节点：{{keyArray[keyIndex].name}}"></xx-navigte>
+    </view>
+  </picker>
+</view>
+
+
+
+<view class='control'>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_top.png' bindtap='moveTop' ></image>
+        </navigator>
+    </view>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_left.png' class='left' catchtap='moveLeft'></image>
+        </navigator>
+        <label>微调</label>
+        <navigator>
+            <image src='../../images/direction_right.png' catchtap='moveRight'></image>
+        </navigator>
+    </view>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_bottom.png' catchtap='moveBottom'></image>
+        </navigator>
+    </view>
+    <!-- <button catchtap='clip' size='mini'>联系作者</button> -->
+</view>
+<view style='height:20px'></view>
+
+<ai-make 
+    makeLandmark="{{makeLandmark}}" 
+    bg="{{tempImage}}"
+    width="{{imageWidth}}"
+    height="{{imageHeight}}"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+></ai-make>
+
+
+<ai-btn
+    catch:clickChoice="clickChoice"
+    catch:clickDown="clickDown"
+></ai-btn>
+
+
+
+
+
+<!-- 
+  <movable-area style="height: 200px; width: 200px; ">
+    <movable-view style="height: 50px; width: 50px; background: blue;" x="{{x}}" y="{{y}}" direction="all">
+    </movable-view>
+  </movable-area>
+
+<xx-base64 url="{{tempImage}}" catchgetBase64="getBase64"></xx-base64>
+
+<view class='xx_box'>
+
+
+    <view class='xx_card'>
+        <view class='xx_image'>
+            <image class='org' src='{{tempImage}}' mode='aspectFit'></image>
+
+
+        </view>
+
+        <view style='height:15px'></view>
+    </view>
+</view>
+
+<view class='loading ' wx:if="{{isLoad}}">
+    <label class='toast'>努力识别中..</label>
+</view>
+<view class='xx_btn' wx:else>
+    <view class='mode mode_bg_sub' catchtap='back'>
+        <view class='node' hover-class="click">
+            <image src='../../images/right.png'></image>
+        </view>           
+    </view>
+    <view class='center'>钦州三娘湾</view>
+    
+    <view class='mode mode_bg_sub' catchtap='openDialog' > 
+        <view class='node' hover-class="click">
+            <image src='../../images/error.png'></image>
+        </view>    
+    </view>
+</view> -->

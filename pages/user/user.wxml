@@ -1,0 +1,20 @@
+<!--pages/user/user.wxml-->
+<!-- <text>pages/user/user.wxml</text> -->
+
+<view>
+    我的集点二维码
+    <image class='qr' src='../../images/qr.jpg'></image>
+</view>
+<view style='height:20px'> </view>
+
+<view>我的总积分:{{score}}</view>
+<view>我的奖品:{{prize}}(1杯已兑换，1杯未兑换)</view>
+<view>
+    <button size='mini'>兑换二维码</button> 
+    <image class='qr' src='../../images/qr.jpg'></image>
+</view>
+
+<view style='height:20px'> </view>
+
+<view>兑换咖啡所需积分:{{limit}}</view>
+<button>换取奖励</button>

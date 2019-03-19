@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml-->
+<view class='logo'>
+    <block wx:if="{{isLogin}}">
+        <view>
+            <image src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view style='height:5px;'></view>
+        <view>{{userInfo.nickName}}</view>
+    </block>
+    <block wx:else>
+        <button size='mini' bindgetuserinfo='getUserInfo'open-type="getUserInfo" lang="zh_CN"  >点击登陆</button>
+    </block>
+</view>
+
+<view class='score'>
+    <view>祝福积分</view>
+    <view class='des'>195分</view>
+</view>
+
+<navigator url='/pages/ladder/ladder' class='score'>
+    <view>天梯榜</view>
+    <view class='des'>第15556位</view>
+</navigator>
+
+<!-- <view class='card'>
+    <view class='header'>
+        <view class='title'>我的祝福卡</view>
+        <view class='des'>7/14</view>
+    </view>
+    <view class='gallery'>
+        <block wx:for="{{list}}" wx:key="index">
+            <view class='node'>
+                <view class='image_box'>
+                    <image src='../../images/swiper.jpg' catchtap='clickCard'></image>
+                    <view class='des'>
+                        <label class='share'>赠送</label>
+                        <label>数量:0</label>
+                    </view>
+                </view>
+            </view> 
+        </block>
+    </view>
+</view> -->
+
+<view class='dialog' hidden='{{true}}'>
+    <view>
+        <view>
+            <image src='../../images/swiper.jpg'></image>
+        </view>
+        <view class='btn'>
+            <button>赠送好友</button>
+            <button type='primary'>专属海报</button>
+        </view>
+    </view>
+</view>

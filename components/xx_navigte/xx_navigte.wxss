@@ -1,0 +1,148 @@
+
+.xx_menu {
+    /* margin-top:1.17647059em; */
+    /* margin-top:15px; */
+    background-color:#FFFFFF;
+    line-height:1.41176471;
+    font-size:15px;
+    line-height: 20px;
+    padding: 0 15px;
+}
+.xx_menu__node {
+     padding:15px 0; 
+    position:relative;
+    display:flex;
+    align-items:center;
+    color:inherit;
+}
+.xx_menu__node_icon{
+    width:22px; 
+    height: 22px;
+    margin-left: 5px;
+    margin-right: 17px;
+}
+.xx_menu__node_icon image{
+    width:100%; 
+    height:100%;
+}
+
+.xx_menu__node_icon_lite{
+    width:14px; 
+    height: 14px;
+    /* margin-left: 5px; */
+    margin-right: 15px;
+}
+.xx_menu__node_icon_lite image{
+    width:100%; 
+    height:100%;
+}
+.xx_menu__node_name {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+    line-height: 22px;
+    font-size: 11pt;
+}
+.xx_menu__node_access {
+  position: relative;
+}
+.xx_menu__node_access:after {
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  right: 2px;
+}
+
+/* 菜单右侧描述 */
+.xx_menu__node_descrtion{
+    display: flex;
+    justify-content: center;
+    font-size: 9pt;
+}
+
+
+/* 菜单最右边标记 */
+.xx_menu__node_mark{
+    color:#8d8d8d;
+     font-size:9pt;
+       margin-left:10px; 
+}
+
+
+
+/* 菜单栏头像 */
+.xx_menu__node_logo{
+    width:45px; 
+    height: 45px;
+    margin: 5px 15px 5px 0;
+}
+.xx_menu__node_logo image{
+    width:100%; 
+    height:100%;
+    border-radius: 50%;
+}
+
+/* 菜单栏头像 */
+.xx_menu__node_roster{
+    width:75px; 
+    height: 75px;
+     margin-right: 15px; 
+}
+.xx_menu__node_roster image{
+    width:75px; 
+    height: 75px;
+    /* border-radius: 50%; */
+}
+
+
+.xx_text__right{
+    text-align: right;
+}
+
+
+.xx_menu__node_access {
+  position: relative;
+}
+.xx_menu__node_access:after {
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  right: 2px;
+}
+
+
+.xx_menu__node_name {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+    line-height: 22px;
+    font-size: 11pt;
+}
+
+
+/* 点击后变色 */
+.xx_active {
+    background-color: #ECECEC !important;
+}

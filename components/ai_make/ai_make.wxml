@@ -1,0 +1,7 @@
+
+
+
+    <!-- <canvas canvas-id="downCanvas" class="canvas" ></canvas> -->
+
+    
+<canvas canvas-id="downCanvas" class="canvas" style='width:{{width + borderSize}}px ;height:{{height+logoHeight}}px' ></canvas>

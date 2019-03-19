@@ -1,0 +1,35 @@
+<!--pages/sport/sport.wxml-->
+
+
+<view class='head'>跟标准姿势运动，一起防止办公室疾病吧</view>
+<block wx:for="{{list}}" wx:index="index"> 
+    <view class='article'>
+        <view class='cover'>
+            <image
+                class='image'
+                src='{{item.cover}}' 
+                mode="widthFix" 
+                data-url='{{item.cover}}' 
+                catchtap='preview'>
+            </image>
+        </view>
+        <view class='title'>办公室健身姿势{{index + 1}}</view>
+        <view class='title'>{{item.title}}</view>
+        <view class='summary'>{{item.summary}}</view>
+        <view class='content'>
+            <rich-text nodes="{{item.content}}"></rich-text>
+        </view>
+    </view>
+</block>
+<view style='height:150px'></view>
+
+<view class="ad_fix">
+    <ad unit-id="adunit-6ef66c41bd1ce1d9" class="node" ></ad>
+</view>
+<ad unit-id="adunit-6ef66c41bd1ce1d9" class="ada" ></ad>
+<!-- 要点：
+    <view>1、双脚后跟紧挨着，双脚成90度角，这样站立，能让脊柱充分正直；</view>
+    <view>2、身体正直站立，头顶向上顶，让脖子伸直，下巴与地面保持垂直，不要向前噘，这样让颈椎正直；</view>
+    <view>3、双手握拳放在身体两侧，自然下垂双臂；</view>
+    <view>4、闭口，轻咬牙关（很重要），舌尖抵上牙堂门牙位置，这叫“舌抵上腭”；</view>
+    <view>5、眼睛可以微闭，或者目视斜下方地面，总之，不要东瞧西望；</view> -->

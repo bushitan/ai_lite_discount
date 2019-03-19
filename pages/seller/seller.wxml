@@ -1,0 +1,12 @@
+<!--pages/seller/seller.wxml-->
+
+<button>扫码核销</button>
+<button>扫码取消</button>
+<view>我的核销记录</view>
+<view>
+    <block wx:for="{{list}}" wx:index="index">
+        <label>{{item.name}}</label>
+        <label>{{item.type}}</label>
+        <label>{{item.num}}</label>
+    </block>
+</view>
