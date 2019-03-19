@@ -8,7 +8,7 @@ App({
     onLaunch: function () {
         wx.cloud.init({
             // env: 'drelease',
-            env:'dtest'
+            env:'dtest-053ee4'
         })
 
 
