@@ -17,6 +17,14 @@ var request = new Request()
 request.init(XCX_308_URL + 'lite/login/', APP_ID)
  
 module.exports = {
+    USER_ID: "user_id",
+    OPEIN_ID: "openid",
+    APP_ID: "appid",
+    UNION_ID: "unionid",
+
+
+
+
     Request: request.Request,
     LITE_REGISTER: XCX_308_URL + 'lite/register/',
 

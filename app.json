@@ -1,5 +1,6 @@
 {
     "pages":[
+        "pages/route/route",
         "pages/user/user",
         "pages/seller/seller",
         "pages/host/host",
