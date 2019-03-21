@@ -1,0 +1,24 @@
+/* pages/user/user.wxss */
+
+.editor {
+    padding: 15px;
+}
+
+.editor .bg{
+    width: 100%;
+}
+
+.editor .logo{
+    width: 32px;
+    height: 32px;
+}
+
+/*********模板*********/
+.tem .tem_bg{
+    width: 64px;
+    height: 48px;
+}
+
+scroll-view{
+    white-space: nowrap;
+}

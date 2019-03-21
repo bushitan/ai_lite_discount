@@ -31,13 +31,13 @@ Page({
     onLoad: function (options) {
         GP = this
         // console.log(action_user.login( GP.loginSuccess ))
-        // wx.showLoading({
-        //     title: '加载中...',
-        // }) 
+        wx.showLoading({
+            title: '加载中...',
+        }) 
 
-        wx.navigateTo({
-            url: '/pages/seller/seller'
-        })
+        // wx.switchTab({
+        //     url: '/pages/seller/seller'
+        // })
         // wx.redirectTo({
         //     url: '/pages/seller/seller',
         // })
@@ -47,13 +47,15 @@ Page({
         GP.loginCheck()
     },
 
+    
+
     // 检查是否登录
     loginCheck(){
         if (wx.getStorageSync(API.USER_ID) == "")
             action_user.login(GP.loginSuccess)
         else {
-            wx.navigateTo({
-                url: '/pages/user/user',
+            wx.redirectTo({
+                url: '/pages/g_my/g_my',
             })
         }
             // action_user.updateUserInfo(id, data)

@@ -1,7 +1,7 @@
 
 class base {
     constructor(options) {
-        console.log("base" , options)
+        // console.log("base" , options)
         this.db = wx.cloud.database()
         if (options)
             Error("未填入指定表")

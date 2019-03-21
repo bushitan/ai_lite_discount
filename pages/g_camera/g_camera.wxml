@@ -1,0 +1,40 @@
+<!--pages/user/user.wxml-->
+<!-- <text>pages/user/user.wxml</text> -->
+
+<!-- 用户 openid -->
+
+<view class='tem'>
+    <view>选模板</view>
+    <scroll-view    scroll-x="true">
+        <block wx:for="{{temBG}}" >    
+            <image 
+                class='tem_bg'
+                src='../../images/image.png'
+                catchtap='clickBG'
+                data-src='../../images/image.png'
+            ></image>
+        </block>
+    </scroll-view>
+</view>
+<button size='mini'>拍照</button>
+<button size='mini'>从相册选择</button>
+
+<view class='editor'>
+    <image class='bg' src='{{bgImage}}' mode='widthFix'></image>
+    <view>
+        <block wx:for="{{avatarList}}">
+            <image class='logo' src='../../images/user-unlogin.png'></image>
+        </block>
+    </view>
+</view>
+
+<button catchtap='clickMix'>合成图片</button>
+
+<ai-make 
+    makeLandmark="{{makeLandmark}}" 
+    bg="{{tempImage}}"
+    width="{{imageWidth}}"
+    height="{{imageHeight}}"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+></ai-make>

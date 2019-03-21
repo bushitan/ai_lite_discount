@@ -1,12 +1,18 @@
 {
     "pages":[
+        "pages/painter/painter",
         "pages/route/route",
+        "pages/g_my/g_my",
+        "pages/g_camera/g_camera",
+
+
+
+        
         "pages/user/user",
         "pages/seller/seller",
         "pages/host/host",
 
         "pages/sport/sport",
-        "pages/painter/painter",
         "pages/test/test",
         "pages/my/my"
 
