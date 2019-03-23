@@ -22,6 +22,8 @@ Page({
 
         makeLandmark:{},
         temBG: [1, 2, 3, 1, 2, 3,],
+
+        gid:"",
     },
 
     /**
@@ -31,10 +33,18 @@ Page({
         GP = this
         // console.log(action_user.login( GP.loginSuccess ))
         var gid = options.gid
+        GP.onInit(gid)
+        console.log(options)
+    },
+
+    onInit(gid){
+        // if (gid == GP.data.gid){
+        //     console.log("相同的")
+        //     return 
+        // }
         GP.setData({
             gid: gid
         })
-        console.log(options)
     },
 
     // 点击模板背景图片

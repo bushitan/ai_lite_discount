@@ -4,20 +4,22 @@
 <!-- 用户 openid -->
 <view class="userinfo">
     <button 
-        open-type="getUserInfo" 
-        bindgetuserinfo="onGetUserInfo"
         class="userinfo-avatar"
         style="background-image: url({{avatarUrl}})"
     ></button>
     <view>
-        <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+        <button 
+            class="userinfo-nickname"         
+            open-type="getUserInfo" 
+            bindgetuserinfo="onGetUserInfo"
+        >更新头像</button>
     </view>
 </view>
 
 
 <view class='group'>
     <block wx:for="{{groupList}}">
-        <view class='node' catchtap='toGroup' data-gid='{{item.gid}}'>
+        <view class='node' catchtap='clickGroup' data-gid='{{item.gid}}'>
             <view class='title'>中老年活动中心</view>
             <view class='member'>                
                 <block wx:for="{{[1,2,3,4]}}">
@@ -28,3 +30,6 @@
         </view>
     </block>
 </view>
+{{openGId}}
+<open-data type="groupName" open-gid="{{openGId}}"></open-data>
+<open-data type="userAvatarUrl"></open-data>

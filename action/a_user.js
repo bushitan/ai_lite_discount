@@ -2,6 +2,12 @@
 var DB_User = require('../db/user.js')
 var db_user = new DB_User()
 
+var DB_Group = require('../db/group.js')
+var db_group = new DB_Group()
+
+var DB_Rel = require('../db/rel_group_user.js')
+var db_rel = new DB_Rel()
+
 class ActionUser {
     constructor() {
         // super({ model: "user" })
@@ -40,21 +46,62 @@ class ActionUser {
         })
     }
 
+    // 获取用户头像
     getUserInfo(userID ,successFun){
-        db_user.getSelf(userID).then(res =>{
-            console.log(res)
-            successFun(res.data)            
-        })
+        return db_user.getSelf(userID)
+        // .then(res =>{
+        //     console.log(res)
+        //     successFun(res.data)            
+        // })
     }
 
 
     // 更新用户详情
     updateUserInfo( userID, userInfo ) {
-        db_user.update(userID, userInfo).then( res => 
+        return db_user.update(userID, userInfo).then( res => 
             wx.showToast({
                 title: '更新头像成功',
             })
         )
+    }
+
+    // 获取群组列表
+    getGroupList(userID) {
+
+    }
+
+    // 增加群
+    addGroup(gid,userID) {   
+        var groupData = {
+            "gid": gid,
+        }     
+        db_group.count(groupData).then(res => {
+            var total = res.total
+            if (total == 0) {   //插入                
+                //存在，插入信息
+                db_group.add(groupData).then(res => {
+                    console.log(res)
+                })
+
+            }
+        })
+    }
+
+    //增加群和用户的关系
+    addRelGroupUser(gid, userID) {
+        var groupData = {
+            "gid": gid,
+        }
+        db_rel.count(groupData).then(res => {
+            var total = res.total
+            if (total == 0) {   //插入                
+                //存在，插入信息
+                db_rel.add(groupData).then(res => {
+                    console.log(res)
+                })
+
+            }
+        })
     }
 
 }

@@ -16,13 +16,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        avatarUrl: '../../images/user-unlogin.png',
-
-
-        limit:6,
-
-        score:5,
-        prize:"2杯咖啡",
     },
 
     /**
@@ -30,35 +23,37 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        // console.log(action_user.login( GP.loginSuccess ))
         wx.showLoading({
             title: '加载中...',
         }) 
+        console.log("route:",options)
 
-        // wx.switchTab({
-        //     url: '/pages/seller/seller'
-        // })
-        // wx.redirectTo({
-        //     url: '/pages/seller/seller',
-        // })
-        // ({
-        //     url: '/pages/seller/seller',
-        // })
         GP.loginCheck()
+        // GP.checkUserInfo()
+    },    
+
+    // 检测是否用户授权
+    checkUserInfo(){
+        return new Promise( (resolve,reject)=>{
+            wx.getSetting({
+                success(res) {
+                    console.log(res.authSetting)
+                    resolve(res.authSetting.hasOwnProperty("scope.userInfo"))
+                }
+            })
+        })
+        
     },
 
-    
+
 
     // 检查是否登录
     loginCheck(){
         if (wx.getStorageSync(API.USER_ID) == "")
             action_user.login(GP.loginSuccess)
         else {
-            wx.redirectTo({
-                url: '/pages/g_my/g_my',
-            })
+            GP.toMy()
         }
-            // action_user.updateUserInfo(id, data)
     },
 
     // 登陆成功
@@ -70,11 +65,19 @@ Page({
         // wx.showToast({
         //     title: '登录成功',
         // })
-        console.log(res)
+        GP.toMy()
+    },
 
-        wx.navigateTo({
-            url: '/pages/user/user',
+    // 跳到我的页面
+    toMy(){
+        GP.checkUserInfo().then( res=>{
+            if (res) 
+                wx.redirectTo({url: '/pages/g_my/g_my',})
+            else
+                wx.redirectTo({ url: '/pages/g_info/g_info', })
         })
+        // return
+       
     },
 
     /**
