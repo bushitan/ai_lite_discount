@@ -14,11 +14,15 @@ class base {
         return this.query.where(data).count()
     }
     // 更新单个信息
-    update(id,data) {
-        return this.query.doc(id).update({
-            data:data
-        })
-    }
+    // update(openID,data) {
+    //     return this.query
+    //     .where({ 
+    //         _openid: openID
+    //     })
+    //     .update({
+    //         data:data
+    //     })
+    // }
 
 
 

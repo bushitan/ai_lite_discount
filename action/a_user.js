@@ -14,36 +14,8 @@ class ActionUser {
     }
 
     // 用户登录，不包含详细信息
-    login( successFun ) {
-        //微信登陆
-        db_user.wxLogin().then(res => {
-            var openid = res.openid
-            var appid = res.appid
-            var unionid = res.unionid
-            var data = { openid: openid}
-            //查询是否存在用户
-            db_user.count(data).then(res => {
-                var total = res.total
-                if (total == 0) {   //插入                
-                    var initInfo = {
-                        "avatarUrl": '',
-                        "city": '',
-                        "country": '',
-                        "gender": '',
-                        "language": '',
-                        "nickName": '',
-                        "province": '',
-                    }
-                    //存在，插入信息
-                    db_user.add(initInfo).then(res => {
-                        res.openid = openid
-                        res.appid = appid
-                        res.unionid = unionid
-                        successFun(res)
-                    })
-                }
-            })
-        })
+    login(successFun) {
+        return db_user.wxLogin()
     }
 
     // 获取用户头像
@@ -57,7 +29,7 @@ class ActionUser {
 
 
     // 更新用户详情
-    updateUserInfo( userID, userInfo ) {
+    updateUserInfo(userID, userInfo ) {
         return db_user.update(userID, userInfo).then( res => 
             wx.showToast({
                 title: '更新头像成功',
@@ -66,8 +38,22 @@ class ActionUser {
     }
 
     // 获取群组列表
-    getGroupList(userID) {
-
+    getGroupList(openid) {
+        return wx.cloud.callFunction({
+            name: 'group_list',
+            data: {
+                openid: openid,
+            },
+        })
+    } 
+    // 获取群内容
+    getGroup(gid) {
+        return wx.cloud.callFunction({
+            name: 'group',
+            data: {
+                gid: gid,
+            },
+        })
     }
 
     // 增加群
@@ -107,3 +93,42 @@ class ActionUser {
 }
 
 module.exports = ActionUser
+
+
+
+
+
+        // //微信登陆
+        // db_user.wxLogin().then(res => {
+        //     var openid = res.openid
+        //     var appid = res.appid
+        //     var unionid = res.unionid
+        //     var data = { _openid: openid}
+        //     //查询是否存在用户
+        //     db_user.count(data).then(res => {
+        //         var total = res.total
+        //         if (total == 0) {   //插入                
+        //             var initInfo = {
+        //                 "avatarUrl": '',
+        //                 "city": '',
+        //                 "country": '',
+        //                 "gender": '',
+        //                 "language": '',
+        //                 "nickName": '',
+        //                 "province": '',
+        //             }
+        //             //存在，插入信息
+        //             db_user.add(initInfo).then(res => {
+        //                 res.openid = openid
+        //                 res.appid = appid
+        //                 res.unionid = unionid
+        //                 successFun(res)
+        //             })
+        //         }
+        //         else{
+
+        //             successFun(res)
+        //         }
+
+        //     })
+        // })

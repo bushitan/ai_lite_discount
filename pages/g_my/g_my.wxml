@@ -20,7 +20,7 @@
 <view class='group'>
     <block wx:for="{{groupList}}">
         <view class='node' catchtap='clickGroup' data-gid='{{item.gid}}'>
-            <view class='title'>中老年活动中心</view>
+            <view class='title'> <open-data type="groupName" open-gid="{{item.gid}}"></open-data></view>
             <view class='member'>                
                 <block wx:for="{{[1,2,3,4]}}">
                     <image class="g_logo" src='../../images/user-unlogin.png'> </image>
@@ -30,6 +30,7 @@
         </view>
     </block>
 </view>
-{{openGId}}
-<open-data type="groupName" open-gid="{{openGId}}"></open-data>
-<open-data type="userAvatarUrl"></open-data>
+
+<!-- {{openGId}} -->
+<!-- <open-data type="groupName" open-gid="{{openGId}}"></open-data>
+<open-data type="userAvatarUrl"></open-data> -->

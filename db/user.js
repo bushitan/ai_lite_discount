@@ -25,7 +25,30 @@ class news extends base {
         // }).get()
            
     }
-    
+
+    // 更新用户信息
+    update(userID,data) {
+        // return this.query.where({ 
+        //     openid: openID
+        // })
+        // .update({
+        //     data:data
+        // })
+        return this.db.collection('user').doc(userID).update({
+            data: data
+        })
+        // .where({
+        //     _openid: openID
+        // })
+            
+        // return this.db.collection('user').where({
+        //     _openid: openID
+        // })
+        //     .update({
+        //         data: data
+        //     })
+    }
+
     // 微信登陆
     wxLogin() {
         return new Promise((resolve, reject) => {
@@ -33,9 +56,9 @@ class news extends base {
                 name: 'login',
                 data: {},
                 success: res => {
-                    console.log('[云函数] [login] user openid: ', res.result.openid)
-                    console.log('[云函数] [login] user appid: ', res.result.appid)
-                    console.log('[云函数] [login] user unionid: ', res.result.unionid)
+                    // console.log('[云函数] [login] user openid: ', res.result.openid)
+                    // console.log('[云函数] [login] user appid: ', res.result.appid)
+                    // console.log('[云函数] [login] user unionid: ', res.result.unionid)
                     resolve(res.result)
                 },
                 fail: err => {

@@ -18,9 +18,10 @@ request.init(XCX_308_URL + 'lite/login/', APP_ID)
  
 module.exports = {
     USER_ID: "user_id",
-    OPEIN_ID: "openid",
-    APP_ID: "appid",
-    UNION_ID: "unionid",
+    USER_INFO: "user_info",
+    OPEN_ID: "open_id",
+    APP_ID: "app_id",
+    UNION_ID: "union_id",
 
 
 

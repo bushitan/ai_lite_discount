@@ -22,8 +22,8 @@
 <view class='editor'>
     <image class='bg' src='{{bgImage}}' mode='widthFix'></image>
     <view>
-        <block wx:for="{{avatarList}}">
-            <image class='logo' src='../../images/user-unlogin.png'></image>
+        <block wx:for="{{userList}}">
+            <image class='logo' src='{{item.avatarUrl}}'></image>
         </block>
     </view>
 </view>
@@ -38,3 +38,5 @@
     pointColor="{{pointColor}}"
     lineColor="{{lineColor}}"
 ></ai-make>
+
+<canvas style="width: 400px; height: 400px;border:1px solid red" canvas-id="myCanvas"></canvas>

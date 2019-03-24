@@ -49,24 +49,14 @@ Page({
 
     // 检查是否登录
     loginCheck(){
-        if (wx.getStorageSync(API.USER_ID) == "")
-            action_user.login(GP.loginSuccess)
-        else {
+        action_user.login().then( userInfo => {
+            wx.setStorageSync(API.USER_ID, userInfo._id)
+            wx.setStorageSync(API.OPEN_ID, userInfo._openid)
+            wx.setStorageSync(API.USER_INFO, userInfo)
             GP.toMy()
-        }
+        })
     },
 
-    // 登陆成功
-    loginSuccess(res) {
-        wx.setStorageSync(API.USER_ID, res._id)
-        wx.setStorageSync(API.OPEIN_ID, res.openid)
-        wx.setStorageSync(API.APP_ID, res.appid)
-        wx.setStorageSync(API.UNION_ID, res.unionid)
-        // wx.showToast({
-        //     title: '登录成功',
-        // })
-        GP.toMy()
-    },
 
     // 跳到我的页面
     toMy(){

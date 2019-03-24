@@ -23,6 +23,7 @@ App({
         if (options.scene == 1044) {
             actionGID.getOpenGID(options.shareTicket).then( gid =>{
                 that.globalData.openGID = gid
+
                 // 当前有栏目
                 if (getCurrentPages.length > 0){
                     var currentPage = getCurrentPages()[0]

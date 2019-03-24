@@ -19,7 +19,8 @@ Page({
     data: {
         avatarUrl: '../../images/user-unlogin.png',
 
-        groupList:[1,2],
+
+        groupList:[],
         gid:'',
     },
 
@@ -28,12 +29,10 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-
-
         var myUtils = new MyUtils(GP) //初始化
         GP.setData({ userID: wx.getStorageSync(API.USER_ID) }) //设置UID
         GP.getUserInfo() //获取用户信息
-        // GP.getGroupList() //获取群组列表
+        GP.getGroupList() //获取群组列表
     },
 
     //检测GP
@@ -41,15 +40,8 @@ Page({
         if (APP.globalData.openGID == "") return //没有获取gid
         var gid = APP.globalData.openGID
         APP.globalData.openGID = ""  //修正为空
-
-        action_user.addGroup(gid, GP.data.userID)
-        action_user.addRelGroupUser(gid, GP.data.userID)
-
-
         GP.toGroup(gid)
     },
-
-
 
     onShow(options) {
         GP.checkGID() //检测GID是否一致
@@ -71,8 +63,11 @@ Page({
 
     // 获取群组列表
     getGroupList(){
-        action_user.getGroupList(GP.data.userID).then(res => {
-            
+        action_user.getGroupList(wx.getStorageSync(API.OPEN_ID)).then(res => {
+            console.log("get group list:",res.result.data)
+            GP.setData({
+                groupList: res.result.data
+            })
         })
     },
 
@@ -95,13 +90,19 @@ Page({
         }
     },
 
-    clickGroup(){
-        var gid = e.currentTarget.dataset.gid || e
+    // 点击群标签
+    clickGroup(e){
+        var gid = e.currentTarget.dataset.gid 
         GP.toGroup(gid)
     },
 
     // 去到群组
     toGroup(gid){
+
+        // 去到群之前，存储群信息
+        // action_user.addGroup(gid, GP.data.userID)
+        action_user.addRelGroupUser(gid, GP.data.userID)
+
         console.log(gid)
         wx.navigateTo({
             url: '/pages/g_camera/g_camera?gid=' + gid,
