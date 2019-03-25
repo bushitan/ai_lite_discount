@@ -1,0 +1,31 @@
+.xx_menu {
+    /* margin-top:1.17647059em; */
+    /* margin-top:15px; */
+    background-color:#FFFFFF;
+    line-height:1.41176471;
+    font-size:15px;
+    line-height: 20px;
+    padding: 0 15px;
+}
+.xx_menu__node {
+     padding:15px 0; 
+    position:relative;
+    display:flex;
+    align-items:center;
+    color:inherit;
+}
+.xx_menu__node_name {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+    line-height: 22px;
+    font-size: 11pt;
+}
+
+.xx_line__hx_left{
+    content: "";
+    /* border-left: 2px #187bbf solid; */
+    padding-left: 5px;  
+}
+
+

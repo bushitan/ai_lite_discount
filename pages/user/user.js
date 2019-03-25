@@ -18,11 +18,35 @@ Page({
     data: {
         avatarUrl: '../../images/user-unlogin.png',
 
-
         limit:6,
-
         score:5,
         prize:"2杯咖啡",
+
+        score:{
+            //普通版本
+            _id:"",
+            type: 1,//1积分,2奖品
+            userID: "",
+            sellID: "",
+            isUsed: 0,//0 未使用，1已使用
+            createTime:"",
+            checkTime:"",
+            //分享模块
+            shareID:"",
+            shareSellerID:"",
+            shareTime:"",
+            shareCheckTimg:"",
+            isShare: 0,//0 已分享，1未分享
+            shareUserNum: 1,//
+            shareUserUnit: 1,//
+            shareFriendNum: 1,//
+            shareFriendUnit: 1,//
+
+
+        },
+        user:{},
+
+
     },
 
     /**

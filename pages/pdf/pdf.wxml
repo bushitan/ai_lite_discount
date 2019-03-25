@@ -1,0 +1,15 @@
+<!--pages/pdf/pdf.wxml-->
+<!-- <text>pages/pdf/pdf.wxml</text>
+<button catchtap='click'>打开文档</button>
+<button catchtap='clickPDF'>打开pdf</button> -->
+
+<mark color="#187bbf" title="华讯会刊"></mark>
+
+<view class='article'>
+    <block wx:for="{{list}}" wx:key="index">
+        <view class='node' catchtap='clickPDF'>
+            <image class='cover' src='../../images/pdf.png'  ></image>
+            <view class='name'>会刊</view>
+        </view>
+    </block>
+</view>

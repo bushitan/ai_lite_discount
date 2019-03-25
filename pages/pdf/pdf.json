@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "mark": "../../components/xx_mark/xx_mark"
+    }
+}

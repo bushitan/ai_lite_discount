@@ -1,0 +1,19 @@
+/* pages/pdf/pdf.wxss */
+
+.article{
+    display: flex;
+    margin-top: 15px;
+    flex-wrap:wrap ;
+}
+
+.node{
+    width: 33%;
+    text-align: center;
+    margin-top: 10px;
+}
+.cover{
+    width: 220rpx;
+    height: 300rpx;
+}
+.name{
+}

@@ -1,5 +1,11 @@
 {
     "pages":[
+        "pages/user/user",
+        "pages/seller/seller",
+        "pages/host/host",
+
+        
+        "pages/pdf/pdf",
         "pages/route/route",
         "pages/g_info/g_info",
         "pages/g_my/g_my",
@@ -8,9 +14,6 @@
         "pages/painter/painter",
 
         
-        "pages/user/user",
-        "pages/seller/seller",
-        "pages/host/host",
 
         "pages/sport/sport",
         "pages/test/test",
@@ -22,7 +25,7 @@
         "backgroundTextStyle": "light",
         "backgroundColor": "#FAFAFA",
         "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "姿势研究中心",
+        "navigationBarTitleText": "华讯会刊",
         "navigationBarTextStyle": "black"
     },
     "tabBar":{

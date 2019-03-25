@@ -28,8 +28,14 @@ Page({
         }) 
         console.log("route:",options)
 
+        "pages/route/route",
+            "pages/route/route",
+            "pages/route/route",
+
+
+
+            
         GP.loginCheck()
-        // GP.checkUserInfo()
     },    
 
     // 检测是否用户授权
