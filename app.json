@@ -3,9 +3,10 @@
         "pages/user/user",
         "pages/seller/seller",
         "pages/host/host",
-
         
         "pages/pdf/pdf",
+
+        
         "pages/route/route",
         "pages/g_info/g_info",
         "pages/g_my/g_my",

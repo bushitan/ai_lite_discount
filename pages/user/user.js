@@ -32,11 +32,11 @@ Page({
             createTime:"",
             checkTime:"",
             //分享模块
-            shareID:"",
-            shareSellerID:"",
+            shareUserID:"",
+            shareSellerID: "",
+            isShare: 0,//0 已分享，1未分享
             shareTime:"",
             shareCheckTimg:"",
-            isShare: 0,//0 已分享，1未分享
             shareUserNum: 1,//
             shareUserUnit: 1,//
             shareFriendNum: 1,//
