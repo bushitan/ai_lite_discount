@@ -9,11 +9,21 @@ class news extends base {
     check(){
 
     }
-    add(userinfo) {
+    add(data) {
         // var data = {
         //     title: '第3个姿势'
         // }
-        return this.query.add({ data: userinfo})
+        return this.query.add({ data: data})
+    }
+    // 获取列表
+    getList(data) {
+        // var data = {
+        //     title: '第3个姿势'
+        // }
+        // return this.query.where({ data: data }).get()
+        return this.db.collection('score').where({
+            isUsed: 0 // 填入当前用户 openid
+        }).get()
     }
 
     getSelf(user_id) {

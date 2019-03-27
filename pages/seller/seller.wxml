@@ -1,7 +1,7 @@
 <!--pages/seller/seller.wxml-->
 
-<button catchtap='scan' data-type='addScore' >扫码核销</button>
-<button>扫码取消</button>
+<button catchtap='scan' data-type='addScore' type='primary' >扫码核销</button>
+<!-- <button catchtap='addScore'>测试核销扫码</button>
 <view>我的核销记录</view>
 <view>
     <block wx:for="{{list}}" wx:index="index">
@@ -9,4 +9,4 @@
         <label>{{item.type}}</label>
         <label>{{item.num}}</label>
     </block>
-</view>
+</view> -->

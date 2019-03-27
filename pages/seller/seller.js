@@ -3,6 +3,8 @@
 var API = require('../../utils/api.js')
 var ActionUser = require('../../action/a_user.js')
 var action_user = new ActionUser()
+var ActionScore = require('../../action/action_score.js')
+var action_score = new ActionScore()
 
 
 var GP
@@ -28,12 +30,15 @@ Page({
     scan(e){
         var type = e.currentTarget.dataset.type
         wx.scanCode({
-            onlyFromCamera: true,
+            // onlyFromCamera: true,
             scanType:['qrCode'],
             success(res) {
                 console.log(res)
-                var userID = res.daa.result
-                if (type == "addScore")
+                var list = res.result.split(",")
+                var mode = list[0]
+                var userID = list[1]
+                
+                if (mode == "score")
                     GP.addScore(userID)
             }
         })
@@ -42,6 +47,17 @@ Page({
     // 集点
     addScore(userID){
         // todo 云函数，为用户增加点数
+        // var userID  = "user_id"
+        
+        action_score.checkScore(
+            userID, // 用户id
+            wx.getStorageSync(API.USER_ID), // 核销员id
+        ).then(res =>{
+            wx.showModal({
+                title: '核销成功',
+                content: '',
+            })
+        })
     },
     // 删除集点
     deleteScore(userID) {

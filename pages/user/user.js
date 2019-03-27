@@ -8,6 +8,8 @@ var db_user = new DB_User()
 var API = require('../../utils/api.js')
 var ActionUser = require('../../action/a_user.js')
 var action_user = new ActionUser()
+var ActionScore = require('../../action/action_score.js')
+var action_score = new ActionScore()
 
 
 Page({
@@ -19,7 +21,8 @@ Page({
         avatarUrl: '../../images/user-unlogin.png',
 
         limit:6,
-        score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
+        // score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
+        scoreList:[],
         prize: [0, 1, 2],
         // prize:"2杯咖啡",
 
@@ -31,7 +34,7 @@ Page({
             sellID: "",
             isUsed: 0,//0 未使用，1已使用
             createTime:"",
-            checkTime:"",
+            checkTime:"", //核销时间
             //分享模块
             shareUserID:"",
             shareSellerID: "",
@@ -119,6 +122,30 @@ Page({
     },
 
 
+    // 每次显示首页，都查询一次是否有点数的更新
+    onShow(){
+        action_score.getScore(wx.getStorageSync(API.USER_ID)).then( res =>{
+            console.log(res)
+            var scoreList = res.data
+            var MAX_SCORE  = 10
+            var num = 0
+            if (scoreList.length < MAX_SCORE)
+                var num = MAX_SCORE - scoreList.length
+            for( var i = 0 ; i<num ; i++)
+                scoreList.push({
+                    type: 3,//1积分,2奖品
+                    userID: "",
+                    sellID: "",
+                    isUsed: 0,//0 未使用，1已使用
+                    createTime: "",
+                    checkTime: "", //核销时间
+                })
+            GP.setData({
+                scoreList: scoreList
+            })
+            
+        })
+    },
 
 
     /**
