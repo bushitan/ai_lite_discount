@@ -40,11 +40,30 @@
   border: none;
 }
 
+.userinfo .title{
+    margin-left: 10px;
+    font-size: 12pt;
+    font-weight: bolder;
+}
+.userinfo .date{
+    margin-left: 10px;
+    font-size: 9pt;
+    color: #888;
+}
+
+.userinfo .icon_qr{
+    margin-right:10px; 
+    /* position: absolute;
+    right: 5px; */
+    
+}
 
 
-
-
-
+/********点数**********/
+.weui-grid{
+    width: 25% !important;
+    text-align: center;
+}
 
 
 

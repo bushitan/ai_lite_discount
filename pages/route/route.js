@@ -28,12 +28,6 @@ Page({
         }) 
         console.log("route:",options)
 
-        "pages/route/route",
-            "pages/route/route",
-            "pages/route/route",
-
-
-
             
         GP.loginCheck()
     },    
@@ -59,10 +53,22 @@ Page({
             wx.setStorageSync(API.USER_ID, userInfo._id)
             wx.setStorageSync(API.OPEN_ID, userInfo._openid)
             wx.setStorageSync(API.USER_INFO, userInfo)
-            GP.toMy()
+            GP.toScore()  //集点卡
+            // GP.toMy()  //群相册
         })
     },
 
+
+    // 跳到我的页面
+    toScore() {
+        GP.checkUserInfo().then(res => {
+            if (res)
+                wx.switchTab({ url: '/pages/user/user', })
+            else
+                wx.redirectTo({ url: '/pages/g_info/g_info', })
+        })
+        // return
+    },
 
     // 跳到我的页面
     toMy(){

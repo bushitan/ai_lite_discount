@@ -1,0 +1,7 @@
+/* pages/qrcode/qrcode.wxss */
+.title{
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bolder;
+    line-height: 40px;
+}

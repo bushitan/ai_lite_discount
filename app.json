@@ -1,13 +1,15 @@
 {
     "pages":[
+        "pages/route/route",
         "pages/user/user",
         "pages/seller/seller",
+        "pages/qrcode/qrcode",
+
         "pages/host/host",
         
         "pages/pdf/pdf",
 
         
-        "pages/route/route",
         "pages/g_info/g_info",
         "pages/g_my/g_my",
         "pages/g_camera/g_camera",
@@ -39,10 +41,6 @@
             {
                 "pagePath": "pages/seller/seller",
                 "text": "销售页面"
-            },
-            {
-                "pagePath": "pages/host/host",
-                "text": "老板页面"
             }
         ]
     },

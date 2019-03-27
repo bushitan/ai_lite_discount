@@ -1,6 +1,6 @@
 <!--pages/seller/seller.wxml-->
 
-<button>扫码核销</button>
+<button catchtap='scan' data-type='addScore' >扫码核销</button>
 <button>扫码取消</button>
 <view>我的核销记录</view>
 <view>

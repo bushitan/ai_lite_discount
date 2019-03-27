@@ -46,8 +46,9 @@ Page({
         if (!this.logged && e.detail.userInfo) {
             GP.getUserInfoSuccess(e.detail.userInfo)
             var userID = wx.getStorageSync(API.USER_ID)
-            action_user.updateUserInfo(userID,e.detail.userInfo).then(res => {
-                wx.redirectTo({ url: '/pages/g_my/g_my', })
+            action_user.updateUserInfo(userID, e.detail.userInfo).then(res => {
+                wx.redirectTo({ url: '/pages/user/user', })  //集点卡
+                wx.redirectTo({ url: '/pages/g_my/g_my', }) //群合照
             })
         }
     },

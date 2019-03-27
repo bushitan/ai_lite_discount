@@ -19,10 +19,11 @@ Page({
         avatarUrl: '../../images/user-unlogin.png',
 
         limit:6,
-        score:5,
-        prize:"2杯咖啡",
+        score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
+        prize: [0, 1, 2],
+        // prize:"2杯咖啡",
 
-        score:{
+        scoreDict:{
             //普通版本
             _id:"",
             type: 1,//1积分,2奖品
@@ -41,8 +42,6 @@ Page({
             shareUserUnit: 1,//
             shareFriendNum: 1,//
             shareFriendUnit: 1,//
-
-
         },
         user:{},
 
@@ -112,58 +111,16 @@ Page({
     },
 
 
-
-
-
-
-
-
-    login(){
-        wx.cloud.callFunction({
-            name: 'login',
-            data: {},
-            success: res => {
-                console.log('[云函数] [login] user openid: ', res.result.openid)
-                console.log('[云函数] [login] user appid: ', res.result.appid)
-                console.log('[云函数] [login] user unionid: ', res.result.unionid)
-                // app.globalData.openid = res.result.openid
-                // wx.navigateTo({
-                //     url: '../userConsole/userConsole',
-                // })
-            },
-            fail: err => {
-                console.error('[云函数] [login] 调用失败', err)
-                // wx.navigateTo({
-                //     url: '../deployFunctions/deployFunctions',
-                // })
-            }
-        })
-
-        wx.cloud.callFunction({
-            name: 'sum',
-            data: {
-                a:1,
-                b:2,
-            },
-            success: res => {
-                console.log(res)
-
-                // console.log('[云函数] [login] user openid: ', res.result.openid)
-                // console.log('[云函数] [login] user appid: ', res.result.appid)
-                // console.log('[云函数] [login] user unionid: ', res.result.unionid)
-                // app.globalData.openid = res.result.openid
-                // wx.navigateTo({
-                //     url: '../userConsole/userConsole',
-                // })
-            },
-            fail: err => {
-                // console.error('[云函数] [login] 调用失败', err)
-                // wx.navigateTo({
-                //     url: '../deployFunctions/deployFunctions',
-                // })
-            }
+    // 到集点二维码
+    toQR(){
+        wx.navigateTo({
+            url: '/pages/qrcode/qrcode',
         })
     },
+
+
+
+
     /**
      * 用户点击右上角分享
      */
