@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -72,6 +72,13 @@
 					"name": "g_camera",
 					"pathName": "pages/g_camera/g_camera",
 					"query": "gid=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qr",
+					"pathName": "pages/qrcode/qrcode",
+					"query": "mode=prize",
 					"scene": null
 				}
 			]

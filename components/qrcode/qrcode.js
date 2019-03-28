@@ -58,7 +58,7 @@ Component({
               that.setData({
                   maskHidden: true
               });
-              clearTimeout(st);
+            //   clearTimeout(st);
         //   }, 1000)
 
       },

@@ -23,28 +23,26 @@ Page({
         limit:6,
         // score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
         scoreList:[],
-        prize: [0, 1, 2],
+        prizeList: [],
         // prize:"2杯咖啡",
 
         scoreDict:{
             //普通版本
             _id:"",
-            type: 1,//1积分,2奖品
+            type: 1,//1积分,2奖品,
             userID: "",
             sellID: "",
             isUsed: 0,//0 未使用，1已使用
             createTime:"",
             checkTime:"", //核销时间
             //分享模块
+            shareType: 1,//, 1分享模块
             shareUserID:"",
             shareSellerID: "",
-            isShare: 0,//0 已分享，1未分享
             shareTime:"",
             shareCheckTimg:"",
             shareUserNum: 1,//
             shareUserUnit: 1,//
-            shareFriendNum: 1,//
-            shareFriendUnit: 1,//
         },
         user:{},
 
@@ -100,14 +98,6 @@ Page({
             var userID = wx.getStorageSync(API.USER_ID)
             action_user.updateUserInfo( userID,e.detail.userInfo)
 
-            // db_user.getSelf().then(res => {
-            //     console.log(res)
-            // }).catch(console.error)
-            // var u = e.detail.userInfo
-            // u.city = "123"
-            // db_user.add(u).then(res => {
-            //     console.log(res)
-            // }).catch(console.error)
         }
 
 
@@ -117,41 +107,82 @@ Page({
     // 到集点二维码
     toQR(){
         wx.navigateTo({
-            url: '/pages/qrcode/qrcode',
+            url: '/pages/qrcode/qrcode?mode=score',
         })
     },
 
 
-    // 每次显示首页，都查询一次是否有点数的更新
+    // 每次显示首页，刷新点数
+    // getScore(){
+    //     action_score.getScore(wx.getStorageSync(API.USER_ID)).then( res =>{
+    //         console.log(res)
+    //         // 设置我的杯数
+    //         var result = res.data
+    //         var myScore = []
+    //         for (var i = 0; i < result.length; i++)
+    //             myScore.push(result[i])
+    //         GP.setData({
+    //             myScore: myScore
+    //         })           
+
+    //         // 展示的效果
+    //         var scoreList = res.data
+    //         var MAX_SCORE  = 10
+    //         var num = 0
+    //         if (scoreList.length < MAX_SCORE)
+    //             var num = MAX_SCORE - scoreList.length
+    //         for( var i = 0 ; i<num ; i++)
+    //             scoreList.push({
+    //                 type: 3,//1积分,2奖品
+    //                 userID: "",
+    //                 sellID: "",
+    //                 isUsed: 0,//0 未使用，1已使用
+    //                 createTime: "",
+    //                 checkTime: "", //核销时间
+    //             })
+    //         GP.setData({
+    //             scoreList: scoreList,
+    //         })
+            
+    //     })
+    // },
+
     onShow(){
-        action_score.getScore(wx.getStorageSync(API.USER_ID)).then( res =>{
+        GP.getScorePrize()
+    },
+
+    // 查询点数和已经兑换的咖啡数
+    getScorePrize(){
+        action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
             console.log(res)
-            var scoreList = res.data
-            var MAX_SCORE  = 10
-            var num = 0
-            if (scoreList.length < MAX_SCORE)
-                var num = MAX_SCORE - scoreList.length
-            for( var i = 0 ; i<num ; i++)
-                scoreList.push({
-                    type: 3,//1积分,2奖品
-                    userID: "",
-                    sellID: "",
-                    isUsed: 0,//0 未使用，1已使用
-                    createTime: "",
-                    checkTime: "", //核销时间
-                })
             GP.setData({
-                scoreList: scoreList
+                scoreList: res.score.data,
+                prizeList: res.prize.data,
             })
             
         })
     },
+    
+    // 兑换礼物
+    exchangePrize(){
+        wx.navigateTo({
+            url: '/pages/qrcode/qrcode?mode=prize',
+        })
+    },
 
 
+    copyID(){
+        wx.setClipboardData({
+            data: wx.getStorageSync(API.USER_ID),
+            success: function(res) { console.log("copy right")},
+        })
+    },
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            path:"/pages/route/route"
+        }
     }
 })

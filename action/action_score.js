@@ -12,26 +12,57 @@ class ActionScore {
     }
 
     // 增加集点
-    checkScore(userID, sellID){
+    /**
+     * 用户id，
+     * 销售员id
+     * type 模式，普通模式、分享模式
+     */
+    checkScore(userID, sellID, scanMode){
 
+        // var data = {
+        //     type: 1,//1积分,2奖品
+        //     userID: userID,
+        //     sellID: sellID,
+        //     isUsed: 0,//0 未使用，1已使用
+        //     createTime: Utils.formatTime(new Date()),
+        //     checkTime: Utils.formatTime(new Date()), //核销时间
+        // }.
         var data = {
-            type: 1,//1积分,2奖品
             userID: userID,
             sellID: sellID,
-            isUsed: 0,//0 未使用，1已使用
-            createTime: Utils.formatTime(new Date()),
-            checkTime: Utils.formatTime(new Date()), //核销时间
+            scanMode: scanMode,
         }
-        return db_score.add(data)
+        return db_score.addScore(data)
     }
 
-    getScore(userID){
+    // 查询 分数、奖品
+    getScorePrize(userID) {
         var data = {
             userID: userID, // 用户id
-            isUsed:0, //未使用
         }
-        return db_score.getList(data)
+        return db_score.getScorePrize(data)
     }
+
+
+    exchangePrize(userID, sellID){
+        var data = {
+            userID: userID, // 用户id
+            sellID: sellID
+        }
+        return db_score.exchangePrize(data)
+    }
+
+    // // 查询积分
+    // getScore(userID){
+    //     var data = {
+    //         userID: userID, // 用户id
+    //         isUsed:0, //未使用
+    //     }
+    //     return db_score.getList(data)
+    // }
+
+
+
 }
 
 module.exports = ActionScore

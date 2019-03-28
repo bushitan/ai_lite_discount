@@ -59,6 +59,10 @@
 }
 
 
+.btn{
+    text-align: center;
+}
+
 /********点数**********/
 .weui-grid{
     width: 25% !important;

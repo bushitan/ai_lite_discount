@@ -1,4 +1,4 @@
 <!--pages/qrcode/qrcode.wxml-->
 
-<view class='title'>向商家集点</view>
-<qrcode placeholder="{{userID}}"></qrcode>
+<view class='title'>{{title}}</view>
+<qrcode placeholder="{{userQR}}"></qrcode>
