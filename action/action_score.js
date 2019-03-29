@@ -43,7 +43,7 @@ class ActionScore {
         return db_score.getScorePrize(data)
     }
 
-
+    // 兑换奖品
     exchangePrize(userID, sellID){
         var data = {
             userID: userID, // 用户id
@@ -52,16 +52,23 @@ class ActionScore {
         return db_score.exchangePrize(data)
     }
 
-    // // 查询积分
-    // getScore(userID){
-    //     var data = {
-    //         userID: userID, // 用户id
-    //         isUsed:0, //未使用
-    //     }
-    //     return db_score.getList(data)
-    // }
+    // 校验分享优惠
+    checkShare(userID, scoreID){
+        var data = {
+            userID: userID, // 用户id
+            scoreID: scoreID, //未使用
+        }
+        return db_score.checkShare(data)
+    }
 
 
+    // 获取核销记录表
+    getCheckTrace(sellerID){
+        var data = {
+            sellID: sellerID, // 核销员ID
+        }
+        return db_score.getCheckTrace(data)
+    }
 
 }
 

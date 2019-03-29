@@ -17,6 +17,8 @@ Page({
         list:[
             {name:"魏老师",type:1,num:1},
         ],
+
+        checkList:[], // 核销记录
     },
 
     /**
@@ -24,6 +26,19 @@ Page({
      */
     onLoad: function (options) {
         GP = this
+    },
+
+    onShow(){
+        var sellerID = wx.getStorageSync(API.USER_ID)
+        action_score.getCheckTrace(sellerID).then(res=>{
+            console.log("获取核销成功：",res)
+            GP.setData({
+                checkList:res.data
+            })
+        }).catch(res => {
+            console.log("获取核销记录失败：", res)
+
+        })
     },
 
     // 扫码核销

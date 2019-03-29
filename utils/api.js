@@ -23,6 +23,7 @@ module.exports = {
     APP_ID: "app_id",
     UNION_ID: "union_id",
 
+    SHARE_SCORE_ID:"share_score_id",
 
 
 

@@ -1,6 +1,6 @@
 // pages/user/user.js
 var GP
-
+ 
 var DB_User = require('../../db/user.js')
 var db_user = new DB_User()
 
@@ -24,11 +24,12 @@ Page({
         // score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
         scoreList:[],
         prizeList: [],
+        shareList: [],
         // prize:"2杯咖啡",
 
         scoreDict:{
             //普通版本
-            _id:"",
+            _id:"", 
             type: 1,//1积分,2奖品,
             userID: "",
             sellID: "",
@@ -38,9 +39,7 @@ Page({
             //分享模块
             shareType: 1,//, 1分享模块
             shareUserID:"",
-            shareSellerID: "",
             shareTime:"",
-            shareCheckTimg:"",
             shareUserNum: 1,//
             shareUserUnit: 1,//
         },
@@ -54,39 +53,24 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        // console.log(action_user.login( GP.loginSuccess ))
-        GP.loginCheck()
+        GP.getUserInfoSuccess()
+        // GP.getShareCard()
     },
+    // getShareCard(){
+    //     action_score
+    // },
 
-    // 检查是否登录
-    loginCheck(){
-        if (wx.getStorageSync(API.USER_ID) == "")
-            action_user.login(GP.loginSuccess)
-        else {
-            var userID = wx.getStorageSync(API.USER_ID)
-            action_user.getUserInfo(userID, GP.getUserInfoSuccess)
-        }
-            // action_user.updateUserInfo(id, data)
-    },
-
-    // 登陆成功
-    loginSuccess(res) {
-        wx.setStorageSync(API.USER_ID, res._id)
-        wx.setStorageSync(API.OPEIN_ID, res.openid)
-        wx.setStorageSync(API.APP_ID, res.appid)
-        wx.setStorageSync(API.UNION_ID, res.unionid)
-        wx.showToast({
-            title: '登录成功',
-        })
-        console.log(res)
-    },
 
     //获取用户头像
-    getUserInfoSuccess(userInfo){
-        GP.setData({
-            logged: true,
-            avatarUrl: userInfo.avatarUrl || '../../images/user-unlogin.png',
-            userInfo: userInfo
+    getUserInfoSuccess(){
+        var userID = wx.getStorageSync(API.USER_ID)
+        action_user.getUserInfo(userID, GP.getUserInfoSuccess).then(res=>{
+            var userInfo = res.data
+            GP.setData({
+                logged: true,
+                avatarUrl: userInfo.avatarUrl || '../../images/user-unlogin.png',
+                userInfo: userInfo
+            })
         })
     },
 
@@ -148,7 +132,20 @@ Page({
     // },
 
     onShow(){
-        GP.getScorePrize()
+        GP.checkGetShare() // 检测自己是否获得优惠券
+        GP.getScorePrize() // 查询积分、奖品
+    },
+    
+    // 检测自己是否获得优惠券
+    checkGetShare(){
+        var scoreID = wx.getStorageSync(API.SHARE_SCORE_ID)
+        if(scoreID){
+            action_score.checkShare(wx.getStorageSync(API.USER_ID) ,scoreID).then(res=>{
+                console.log('share success',res)
+            }).catch(res => {
+                console.log('share error',res)
+            })
+        }
     },
 
     // 查询点数和已经兑换的咖啡数
@@ -158,6 +155,7 @@ Page({
             GP.setData({
                 scoreList: res.score.data,
                 prizeList: res.prize.data,
+                shareList:res.share.data
             })
             
         })
@@ -180,9 +178,12 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function (e) {
+        var scoreID = e.target.dataset.score_id
+        var path = e.target.dataset.path
+        console.log(path)
         return {
-            path:"/pages/route/route"
+            path: path
         }
     }
 })

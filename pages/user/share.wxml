@@ -1,0 +1,8 @@
+
+<template name="share">
+    <view class='xx_share'>
+        <image src='../../images/menu_share.png'></image>
+        <!-- <text>分享</text> -->
+        <button open-type='share'></button>
+    </view>
+</template>

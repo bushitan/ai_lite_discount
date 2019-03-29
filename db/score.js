@@ -56,7 +56,7 @@ class news extends base {
         })
     }
 
-
+    // 兑换礼物
     exchangePrize(data) {
         return new Promise((resolve, reject) => {
             wx.cloud.callFunction({
@@ -71,6 +71,29 @@ class news extends base {
                 }
             })
         })
+    }
+
+    //校验分享券ID 
+    checkShare(data){
+        return new Promise((resolve, reject) => {
+            wx.cloud.callFunction({
+                name: 'check_share',
+                data: data,
+                success: res => {
+                    resolve(res.result)
+                },
+                fail: err => {
+                    console.error('[云函数] [check_share] 调用失败', err)
+                    reject(err)
+                }
+            })
+        })
+    }
+
+
+    // 获取核销记录
+    getCheckTrace(data){
+        return this.db.collection('score').where(data).get()
     }
 
 

@@ -1,6 +1,7 @@
 {
     "pages":[
         "pages/route/route",
+        "pages/share/share",
         "pages/user/user",
         "pages/seller/seller",
         "pages/qrcode/qrcode",

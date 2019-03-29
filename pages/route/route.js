@@ -28,9 +28,14 @@ Page({
         }) 
         console.log("route:",options)
 
+        GP.checkShare(options)
             
         GP.loginCheck()
     },    
+    checkShare(options){
+        if (options.hasOwnProperty("is_share"))
+            wx.setStorageSync(API.SHARE_SCORE_ID, options.score_id)
+    },
 
     // 检测是否用户授权
     checkUserInfo(){

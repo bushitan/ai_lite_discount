@@ -70,12 +70,17 @@
 }
 
 
-
-
-
-
-
 .qr{
     width: 80px;
     height: 80px;
+}
+
+
+/*******分享******/
+.share{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  z-index: 99;
 }

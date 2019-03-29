@@ -1,0 +1,31 @@
+
+.xx_share { 
+  height: 36px;
+  width: 36px;
+  /* position: fixed; */
+  /* bottom: 170rpx;
+  right: 30rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  /* background: rgba(0, 0, 0, .6); */
+  /* border-radius: 50%; */
+  z-index: 10;
+} 
+.xx_share image {
+  height: 28px;
+  width: 28px;
+}
+.xx_share text {
+  color: #fff;  
+}
+
+.xx_share button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  z-index: 99;
+}
