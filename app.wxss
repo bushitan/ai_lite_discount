@@ -18,8 +18,8 @@
 page {
   /* height: 100%; */
   width: 100%;
-  /* background-color: #ffffff; */
-  background: #FAFAFA;
+  background-color: #ffffff;
+  /* background: #FAFAFA; */
     font-size: 11pt;
 }
 

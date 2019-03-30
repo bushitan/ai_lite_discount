@@ -1,4 +1,5 @@
 // pages/user/user.js
+// "navigationStyle": "custom",
 var GP
  
 var DB_User = require('../../db/user.js')
@@ -45,6 +46,10 @@ Page({
         },
         user:{},
 
+        // 菜单
+        menu:[
+            {title:"兑换记录",summary:"",page:""},
+        ],
 
     },
 

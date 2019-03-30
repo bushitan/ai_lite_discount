@@ -14,13 +14,19 @@
     </view>
 </view> -->
 
-    <button 
+<view style='height:30px;'></view>
+<view class='box'>
+    <!-- <button 
         open-type="getUserInfo" 
         bindgetuserinfo="onGetUserInfo"
         class="userinfo-avatar"
         style="background-image: url({{avatarUrl}})"
-    ></button>
-
+    ></button> -->
+    <image class='userinfo-avatar' src='{{avatarUrl}}'></image>
+</view>
+<view class='login'>
+    <button size='mini' type='primary'  open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登陆</button>
+</view>
 <!-- <view>
     我的集点二维码
     <image class='qr' src='../../images/qr.jpg'></image>

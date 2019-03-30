@@ -17,8 +17,8 @@
 }
 
 .userinfo-avatar {
-  width: 100rpx;
-  height: 100rpx;
+  width: 180rpx;
+  height: 180rpx;
   margin: 20rpx;
   border-radius: 50%;
   background-size: cover;
@@ -41,8 +41,16 @@
 }
 
 
-
-
+.box{
+    display: flex;
+    justify-content: center;
+    
+}
+.login{
+    text-align: center;
+    font-size: 11pt;
+    color:#888;
+}
 
 
 
