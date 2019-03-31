@@ -1,4 +1,4 @@
-// pages/share/share.js
+// pages/exchange/exchange.js
 var API = require('../../utils/api.js')
 var ActionScore = require('../../action/action_score.js')
 var action_score = new ActionScore()
@@ -9,8 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isLoading: true,
-        shareList:[],
+        isLoading:true,
+        prizeList: [],
     },
 
     /**
@@ -21,7 +21,7 @@ Page({
         action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
             console.log(res)
             GP.setData({
-                isLoading: false,
+                isLoading:false,
                 scoreList: res.score.data,
                 prizeList: res.prize.data,
                 shareList: res.share.data

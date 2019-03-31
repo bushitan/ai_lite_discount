@@ -78,10 +78,10 @@ Page({
             scanMode
         ).then(res =>{
             console.log(res)
-            // wx.showModal({
-            //     title: '核销成功',
-            //     content: '',
-            // })
+            wx.showModal({
+                title: '核销成功',
+                content: res.msg,
+            })
         })
     },
 

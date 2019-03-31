@@ -1,2 +1,39 @@
 <!--pages/share/share.wxml-->
-<text>pages/share/share.wxml</text>
+
+
+<!-- <view class="weui-cells__title">我的集点分享券</view> -->
+<view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+        <block wx:for="{{shareList}}">
+            <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">分享券</view>
+                    <view class="weui-media-box__desc">将券分享好友，您获得1点，他也获得{{item.shareNum}}点</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                <button 
+                    class='share'  
+                    open-type='share'
+                    data-score_id="{{item._id}}"
+                    data-path="/pages/route/route?is_share=1&score_id={{item._id}}"
+                ></button>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+<view class="weui-loadmore " wx:if="{{isLoading}}" >
+    <view class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" wx:else >
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
+        暂无更多数据
+    </view>
+</view>

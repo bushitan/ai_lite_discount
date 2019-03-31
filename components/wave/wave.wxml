@@ -23,5 +23,5 @@
     <view class='score'>
         <image class='icon' src='../../images/icon_score.png' mode='widthFix'></image>
     </view>
-    <view class='rate'> <label>1</label>/10</view>
+    <view class='rate'> <label>{{score}}</label>/10</view>
 </view>

@@ -1,10 +1,13 @@
 {
     "pages":[
         "pages/route/route",
-        "pages/share/share",
         "pages/user/user",
         "pages/seller/seller",
         "pages/qrcode/qrcode",
+        "pages/exchange/exchange",
+        "pages/share/share",
+
+
 
         "pages/host/host",
         
@@ -27,13 +30,15 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "backgroundColor": "#FAFAFA",
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "华讯会刊",
-        "navigationBarTextStyle": "black"
+        "backgroundColor": "#ffffff",
+        "navigationBarBackgroundColor": "#efaf30",
+        "navigationBarTitleText": "咖啡集点卡",
+        "navigationBarTextStyle": "white"
     },
     "tabBar":{
         "position":"bottom",
+        "selectedColor": "#efaf30",
+        "color": "#888888",
         "list": [
             {
                 "pagePath": "pages/user/user",
@@ -50,5 +55,10 @@
         "downloadFile": 15000
     },
     "cloud": true,
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
     "debug": true
 }

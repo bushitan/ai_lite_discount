@@ -21,7 +21,7 @@ Page({
     data: {
         avatarUrl: '../../images/user-unlogin.png',
 
-        limit:6,
+        MAX:10,
         // score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
         scoreList:[],
         prizeList: [],
@@ -161,8 +161,7 @@ Page({
                 scoreList: res.score.data,
                 prizeList: res.prize.data,
                 shareList:res.share.data
-            })
-            
+            })  
         })
     },
     
@@ -178,6 +177,37 @@ Page({
         wx.setClipboardData({
             data: wx.getStorageSync(API.USER_ID),
             success: function(res) { console.log("copy right")},
+        })
+    },
+
+
+    // 去到兑换记录页面
+    toExchange(){
+        wx.navigateTo({
+            url: '/pages/exchange/exchange',
+        })
+    },
+    // 去到分享页面
+    toShare(){
+        wx.navigateTo({
+            url: '/pages/share/share',
+        })
+    },
+    // 去到定位页面
+    toAddress(){
+        wx.getLocation({
+            type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+            success(res) {
+                const latitude = res.latitude
+                const longitude = res.longitude
+                wx.openLocation({
+                    name:"察也手作&乐知咖啡",
+                    address:"南宁市青秀区民族大道155号荣和山水美地六组团21号楼A座602室",
+                    latitude: 22.81534,
+                    longitude: 108.4026,
+                    scale: 18
+                })
+            }
         })
     },
     /**

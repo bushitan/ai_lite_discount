@@ -4,9 +4,9 @@ Component({
    * 组件的属性列表
    */
     properties: {
-        title: {
-            type: String,
-            value: "标记",
+        score: {
+            type: Number,
+            value: 0,
         },
         color: {
             type: String,

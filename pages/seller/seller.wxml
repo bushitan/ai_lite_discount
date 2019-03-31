@@ -1,8 +1,27 @@
 <!--pages/seller/seller.wxml-->
 
-<button catchtap='scan' data-mode='normal' type='primary' >扫码核销</button>
+<!-- <button catchtap='scan' data-mode='normal' type='primary' >扫码核销</button>
 
-<button catchtap='scan' data-mode='share'  >扫码核销（分享）</button>
+<button catchtap='scan' data-mode='share'  >扫码核销（分享）</button> -->
+
+
+
+<view style='height:20px;'></view>
+<view class='box'>
+    <image class='userinfo-avatar' src='../../images/menu_cup.png'></image>
+</view>
+<view class='login'>
+    <button size='mini'  catchtap='scan' data-mode='normal' type='primary' style='background-color:#efaf30;'>扫码核销</button>
+</view>
+
+<view style='height:50px;'></view>
+<view class='box'>
+    <image class='userinfo-avatar' src='../../images/menu_share.png'></image>
+</view>
+<view class='login'>
+    <button size='mini' catchtap='scan' data-mode='share' style='background-color:#1d2a6d;color:#fff' >扫码核销（分享模式）</button>
+</view>
+
 <!-- <button catchtap='addScore'>测试核销扫码</button>
 <view>我的核销记录</view>
 <view>

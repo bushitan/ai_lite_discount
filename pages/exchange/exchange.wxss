@@ -1,0 +1,3 @@
+/* pages/exchange/exchange.wxss */
+
+.weui-panel:after{display:none !important;}

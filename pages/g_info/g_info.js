@@ -47,8 +47,8 @@ Page({
             GP.getUserInfoSuccess(e.detail.userInfo)
             var userID = wx.getStorageSync(API.USER_ID)
             action_user.updateUserInfo(userID, e.detail.userInfo).then(res => {
-                wx.redirectTo({ url: '/pages/user/user', })  //集点卡
-                wx.redirectTo({ url: '/pages/g_my/g_my', }) //群合照
+                wx.switchTab({ url: '/pages/user/user', })  //集点卡
+                // wx.redirectTo({ url: '/pages/g_my/g_my', }) //群合照
             })
         }
     },

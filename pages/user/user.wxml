@@ -3,7 +3,7 @@
 
 <!-- 用户 openid -->
         <!-- style="background-image: url({{avatarUrl}})" -->
-<view class="userinfo">
+<!-- <view class="userinfo">
     <button 
         open-type="getUserInfo" 
         bindgetuserinfo="onGetUserInfo"
@@ -13,10 +13,63 @@
     <view>
         <view class='title' catchlongtap='copyID'>买10送1集点卡</view>
         <view class='date'>有效期：2020-1-1</view>
-        <!-- <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button> -->
     </view>
     <view class='weui-cell__bd'></view>
     <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
+</view> -->
+
+
+<!-- <view style='height:10px;'></view> -->
+<wave
+    score="{{scoreList.length>MAX? MAX :scoreList.length}}"
+></wave>
+
+<view wx:if="{{scoreList.length < MAX}}">    
+    <image catchtap='toQR' class='weui-grid__icon icon_qr' src='../../images/icon_qr.png'></image>
+</view>
+<view wx:else style='text-align:center'>
+    <button catchtap='exchangePrize' type='primary' size="mini" style='background-color:#efaf30;'>兑换</button>
+</view>
+
+
+
+<view style='height:10px;'></view>
+<view class="weui-panel weui-panel_access" >
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toExchange'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">兑换记录</view>
+                <view class="weui-media-box__desc">已兑换{{prizeList.length}}杯</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/icon_cup.png" />
+            </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">分享福利</view>
+                <view class="weui-media-box__desc">您有{{shareList.length}}张福利券</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/menu_share.png" />
+            </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toAddress'>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">店铺地址</view>
+                <view class="weui-media-box__desc">常来店里坐坐</view>
+            </view>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../images/menu_address.png" />
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="weui-loadmore weui-loadmore_line" >
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
+        索骏科技提供服务
+    </view>
 </view>
 
 
@@ -26,30 +79,29 @@
     <image class='qr' src='../../images/qr.jpg'></image>
 </view> -->
 <!-- <view style='height:20px'> </view> -->
-<view class="page__bd">
+<!-- <view class="page__bd">
 <view class="weui-cells__title">单选列表项</view>
     <view class="weui-grids">
         <block wx:for="{{scoreList}}" wx:key="index">
             <navigator url="" class="weui-grid" hover-class="weui-grid_active">
                 <image class="weui-grid__icon"  src="../../images/icon_tabbar.png" wx:if="{{item.type==3}}" />
                 <image class="weui-grid__icon"  src="../../images/icon_coffee.png" wx:else />
-                <!-- <button size='mini'>兑换</button> -->
             </navigator>
         </block>
     </view>
-</view>
+</view> -->
 
-<view  class='btn'>
+<!-- <view  class='btn'>
 <button catchtap='exchangePrize' type='primary' size="mini" disabled='{{scoreList.length<10?true:false}}' >兑换</button>
-</view>
+</view> -->
 
-<view class="page__bd">
+<!-- <view class="page__bd">
     <view class="weui-cells__title">已兑换杯数:{{prizeList.length}}杯</view>
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                 <block wx:for="{{prizeList}}">
-                    <image src="../../images/icon_coffee.png" style="width: 50px; height: 50px;"/>
+                    <image src="../../images/icon_cup.png" style="width: 50px; height: 50px;"/>
                 </block>
 
                  <image class="weui-grid__icon"  src="../../images/icon_tabbar.png"  wx:if="{{prize.length==0}}"/>
@@ -82,7 +134,7 @@
             </block>
         </view>
     </view>
-</view>
+</view> -->
 
 
 <!-- <view>我的总积分:{{score}}</view>
