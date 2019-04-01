@@ -139,6 +139,20 @@ Page({
     onShow(){
         GP.checkGetShare() // 检测自己是否获得优惠券
         GP.getScorePrize() // 查询积分、奖品
+
+
+        wx.cloud.callFunction({
+            name: 'score',
+            data: {
+                $url: 'getDetail',
+                // name: 'tcb',
+                // password: '09876'
+            }
+        }).then((res) => {
+            console.log(res);
+        }).catch((e) => {
+            console.log(e);
+        });
     },
     
     // 检测自己是否获得优惠券
