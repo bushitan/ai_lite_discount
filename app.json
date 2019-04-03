@@ -8,10 +8,11 @@
         "pages/share/share",
         "pages/host/host",
         "pages/pdf/pdf",
+        "pages/brush/brush",
+        "pages/painter/painter",
         "pages/g_info/g_info",
         "pages/g_my/g_my",
         "pages/g_camera/g_camera",
-        "pages/painter/painter",
         "pages/sport/sport",
         "pages/test/test",
         "pages/my/my"

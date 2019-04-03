@@ -74,7 +74,12 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (e) {
+        var scoreID = e.target.dataset.score_id
+        var path = e.target.dataset.path
+        console.log(path)
+        return {
+            path: path
+        }
     }
 })

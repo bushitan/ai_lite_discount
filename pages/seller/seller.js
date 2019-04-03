@@ -92,9 +92,14 @@ Page({
             wx.getStorageSync(API.USER_ID), // 核销员id
         ).then(res => {
             console.log(res)
+            wx.showModal({
+                title: '兑换成功',
+                content: res.msg,
+                showCancel: false,
+            })
             if (res.status == false)
                 wx.showModal({
-                    title: '核销失败',
+                    title: '兑换失败',
                     content: res.msg,
                     showCancel:false,
                 })

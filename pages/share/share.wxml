@@ -11,7 +11,7 @@
                 </view>
                 <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                     <view class="weui-media-box__title">分享券</view>
-                    <view class="weui-media-box__desc">将券分享好友，您获得1点，他也获得{{item.shareNum}}点</view>
+                    <view class="weui-media-box__desc">点击此券分享好友，您获得1点，他也获得{{item.shareNum}}点</view>
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                 <button 

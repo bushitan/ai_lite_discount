@@ -23,7 +23,7 @@ Page({
 
         MAX:10,
         // score: [0, 1, 2, 3, 4, 5, 6, 7, 8,9],
-        scoreList:[],
+        scoreList:"",
         prizeList: [],
         shareList: [],
         // prize:"2杯咖啡",
@@ -137,6 +137,7 @@ Page({
     // },
 
     onShow(){
+
         GP.checkGetShare() // 检测自己是否获得优惠券
         GP.getScorePrize() // 查询积分、奖品
 
@@ -158,8 +159,16 @@ Page({
     // 检测自己是否获得优惠券
     checkGetShare(){
         var scoreID = wx.getStorageSync(API.SHARE_SCORE_ID)
+        console.log("scoreID:", scoreID)
         if(scoreID){
             action_score.checkShare(wx.getStorageSync(API.USER_ID) ,scoreID).then(res=>{
+                if(res.status == true){
+                    wx.showModal({
+                        title: '领取分享点成功',
+                        content: '获得朋友分享的1点积分',
+                    })
+                    GP.getScorePrize() 
+                }
                 console.log('share success',res)
             }).catch(res => {
                 console.log('share error',res)
@@ -171,6 +180,13 @@ Page({
     getScorePrize(){
         action_score.getScorePrize(wx.getStorageSync(API.USER_ID)).then(res => {
             console.log(res)
+            if (GP.data.scoreList != "") 
+                if (res.score.data.length  > GP.data.scoreList.length ) {
+                    wx.showModal({
+                        title: '积分+1',
+                        showCancel:false,
+                    })
+                }
             GP.setData({
                 scoreList: res.score.data,
                 prizeList: res.prize.data,

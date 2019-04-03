@@ -1,0 +1,35 @@
+/* pages/brush/brush.wxss */
+page{
+    background-color: #fff;
+    /* padding: 15px; */
+}
+.weui-grid{
+    background-color: #ddd
+}
+.page__title{
+    margin: 15px;
+    font-size: 11pt;
+    font-weight: bolder;
+}
+.editor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin:10px 0  10px;
+    padding: 0 30px;
+}
+.editor .bg{
+    width: 100%;
+    background-color:#eee;
+}
+.editor .icon{
+    position: absolute;
+    bottom: 10px;
+    left:40px;
+    width:28px;
+    height: 28px;
+}
+
+.btn{
+    padding: 10px 30px;
+}
