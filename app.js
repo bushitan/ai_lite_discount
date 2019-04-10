@@ -46,3 +46,37 @@ App({
 
 
 })
+
+
+// "pages/route/route",
+//     "pages/user/user",
+//     "pages/seller/seller",
+//     "pages/qrcode/qrcode",
+//     "pages/exchange/exchange",
+//     "pages/share/share",
+//     "pages/host/host",
+//     "pages/pdf/pdf",
+//     "pages/painter/painter",
+//     "pages/g_info/g_info",
+//     "pages/g_my/g_my",
+//     "pages/g_camera/g_camera",
+//     "pages/sport/sport",
+//     "pages/test/test",
+//     "pages/my/my"
+
+
+// "tabBar": {
+//     "position": "bottom",
+//         "selectedColor": "#efaf30",
+//             "color": "#888888",
+//                 "list": [
+//                     {
+//                         "pagePath": "pages/user/user",
+//                         "text": "用户页面"
+//                     },
+//                     {
+//                         "pagePath": "pages/seller/seller",
+//                         "text": "销售页面"
+//                     }
+//                 ]
+// },

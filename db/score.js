@@ -1,5 +1,8 @@
 
 var base = require('base.js')
+// import regeneratorRuntime from 'runtime.js'
+// import regeneratorRuntime from '../regenerator-runtime/runtime.js';
+// const regeneratorRuntime = require('runtime.js')
 
 class news extends base {
     constructor() {
@@ -150,6 +153,30 @@ class news extends base {
         })
 
     }
+
+
+    /**
+     * 
+     */
+
+    //校验分享券ID 
+    getAPI(opt) {
+        return new Promise((resolve, reject) => {
+            console.log(opt)
+            wx.cloud.callFunction({
+                name: opt.name,
+                data: opt.data,
+                success: res => {
+                    resolve(res.result)
+                },
+                fail: err => {
+                    console.error('[云函数] [check_share] 调用失败', err)
+                    reject(err)
+                }
+            })
+        })
+    }
+
 }
 
 module.exports = news

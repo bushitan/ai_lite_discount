@@ -70,6 +70,8 @@ class ActionScore {
         return db_score.getCheckTrace(data)
     }
 
+
+    
 }
 
 module.exports = ActionScore

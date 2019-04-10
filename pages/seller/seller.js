@@ -30,16 +30,39 @@ Page({
 
     onShow(){
         var sellerID = wx.getStorageSync(API.USER_ID)
-        action_score.getCheckTrace(sellerID).then(res=>{
-            console.log("获取核销成功：",res)
-            GP.setData({
-                checkList:res.data
-            })
-        }).catch(res => {
-            console.log("获取核销记录失败：", res)
+        // action_score.getCheckTrace(sellerID).then(res=>{
+        //     console.log("获取核销成功：",res)
+        //     GP.setData({
+        //         checkList:res.data
+        //     })
+        // }).catch(res => {
+        //     console.log("获取核销记录失败：", res)
 
-        })
+        // })
+
+        this.getCheckTrace()
+        // var res = action_score.getCheckTrace(sellerID)
+        // console.log(res)
+        // GP.setData({
+        //     checkList:res.data
+        // })
     },
+
+    // 获取核销记录
+    async getCheckTrace() {
+        var sellerID = wx.getStorageSync(API.USER_ID)
+        var res = await action_score.getCheckTrace(sellerID,GP)
+        // console.log(res)
+        GP.setData({
+            checkList: res.data
+        })
+        // wx.showModal({
+        //     title: '' + res.data,
+        //     content: '',
+        // })
+    },
+
+
 
     // 扫码核销
     scan(e){

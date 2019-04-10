@@ -22,6 +22,22 @@
     <button size='mini' catchtap='scan' data-mode='share' style='background-color:#1d2a6d;color:#fff' >扫码核销（分享模式）</button>
 </view>
 
+<view class='trace'>
+    <view>
+        <label>用户头像</label>
+        <label>用户名称</label>
+        <label>核销时间</label>
+    </view>
+    <block wx:for="{{checkList}}">
+        <view>
+            <label>{{item.userID}}</label>
+            <label>{{item.sellID}}</label>
+            <label>{{item.checkTime}}</label>
+        </view>
+        <!-- <label>{{item.}}</label> -->
+    </block>
+</view>
+
 <!-- <button catchtap='addScore'>测试核销扫码</button>
 <view>我的核销记录</view>
 <view>
