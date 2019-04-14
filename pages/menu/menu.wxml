@@ -1,0 +1,52 @@
+<!--pages/menu/menu.wxml-->
+<view> 
+    <image class='swiper' src='../../images/2013/swiper.jpg' mode='widthFix'></image>
+</view> 
+
+<view class='article'>
+    <view class='title'>{{menu.title}}</view>
+    <view class='summary'>{{menu.summary}}</view>
+    <view class='content'>{{menu.content}}</view>
+</view>
+
+
+<view class="weui-panel weui-panel_access" >
+    <view class="weui-panel__bd">
+        <block wx:for="{{menuList}}">
+            <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='{{item.nav}}'>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{item.title}}</view>
+                    <view class="weui-media-box__desc">{{item.des}}</view>
+                </view>
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="{{item.icon}}" />
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="weui-loadmore weui-loadmore_line" >
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style='font-size:8pt;top:-1.2em'>
+        索骏科技提供服务
+    </view>
+</view>
+
+            <!-- <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toShare'>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">分享福利</view>
+                    <view class="weui-media-box__desc">您有{{shareList.length}}张福利券</view>
+                </view>
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="../../images/menu_share.png" />
+                </view>
+            </view> -->
+            <!-- <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active" catchtap='toAddress'>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">店铺地址</view>
+                    <view class="weui-media-box__desc">常来店里坐坐</view>
+                </view>
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="../../images/menu_address.png" />
+                </view>
+            </view> -->

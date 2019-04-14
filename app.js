@@ -80,3 +80,21 @@ App({
 //                     }
 //                 ]
 // },
+
+
+
+// "tabBar": {
+//     "position": "bottom",
+//         "selectedColor": "#efaf30",
+//             "color": "#888888",
+//                 "list": [
+//                     {
+//                         "pagePath": "pages/user/user",
+//                         "text": "用户页面"
+//                     },
+//                     {
+//                         "pagePath": "pages/seller/seller",
+//                         "text": "销售页面"
+//                     }
+//                 ]
+// },

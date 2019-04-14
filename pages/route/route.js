@@ -9,7 +9,6 @@ var API = require('../../utils/api.js')
 var ActionUser = require('../../action/a_user.js')
 var action_user = new ActionUser()
 
-
 Page({
 
     /**
@@ -68,7 +67,7 @@ Page({
     toScore() {
         GP.checkUserInfo().then(res => {
             if (res)
-                wx.switchTab({ url: '/pages/user/user', })
+                wx.redirectTo({ url: '/pages/menu/menu', })
             else
                 wx.redirectTo({ url: '/pages/g_info/g_info', })
         })

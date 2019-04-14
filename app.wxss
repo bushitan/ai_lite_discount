@@ -54,3 +54,22 @@ input {
     width: 750rpx;
 
 }
+
+
+
+
+
+/**菜单栏***/
+/* .weui-panel:before{display:none !important;} */
+.weui-media-box__title{
+    font-size: 11pt !important;
+}
+.weui-media-box__desc{
+    font-size: 9pt !important;
+}
+.weui-media-box__hd_in-appmsg{
+    width:42px;
+    height:42px;
+    line-height:42px;
+}
+.weui-panel:after{display:none !important;}
