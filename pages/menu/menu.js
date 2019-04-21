@@ -19,6 +19,12 @@ Page({
     onLoad: function (options) {
         GP = this 
         GP.getMenu()
+
+        wx.login({
+            success(res){
+                console.log(res)
+            },
+        })
     },
     getMenu(){
         var db = wx.cloud.database()
